@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>笔记</title>
-    <link>https://c1nty.github.io/</link>
-    <description>Recent content on 笔记</description>
+    <title>Reposts on 笔记</title>
+    <link>https://c1nty.github.io/repost/</link>
+    <description>Recent content in Reposts on 笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 17 Jul 2018 19:27:16 +0800</lastBuildDate>
     
-	<atom:link href="https://c1nty.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://c1nty.github.io/repost/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -26,21 +26,6 @@ task = copy_process(CLONE_VM, 0, idle_regs(&amp;amp;regs), 0, NULL, NULL, 0); in
 3.idle的运行时机 idle进程优先级为MAX_PRIO，即最低优先级。早先版本中，idle是参与调度的，所以将其优先级设为最低，当没有其他进程可以运行时，才会调度 执行idle。而目前的版本中idle并不在运行队列中参与调度，而是在运行队列结构中含idle指针，指向idle进程，在调度器发现运行队列为空的时候运行，调入运行。
 4.idle的workload 从上面的分析我们可以看出，idle在系统没有其他就绪的进程可执行的时候才会被调度。不管是主处理器，还是从处理器，最后都是执行的cpu_idle()函数。所以我们来看看cpu_idle做了什么事情。 因为idle进程中并不执行什么有意义的任务，所以通常考虑的是两点：1.节能，2.低退出延迟。 其核心代码如下：
 void cpu_idle(void) { int cpu = smp_processor_id(); current_thread_info()-&amp;gt;status |= TS_POLLING; /* endless idle loop with no priority at all */ while (1) { tick_nohz_stop_sched_tick(1); while (!</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://c1nty.github.io/about/</link>
-      <pubDate>Sun, 15 Jul 2018 18:17:52 +0800</pubDate>
-      
-      <guid>https://c1nty.github.io/about/</guid>
-      <description>Hugo &amp;amp;&amp;amp; GitHub Pages 今天用Hugo实现了GitHub Pages，以后可以当笔记本用了，不过还没找到合适的markdown软件，以前一直用印象笔记，现在想归档一些东西，然而一想到格式转换就有点费劲的感觉，慢慢来。
-参考文档：  安装和使用Hugo: http://www.gohugo.org/
-托管在 GitHub Pages上: http://www.gohugo.org/doc/tutorials/github-pages-blog/
- 遇到的问题：  选择好theme准备部署hugo服务器的时候出现panic: AllThemes not set错误。  版本问题，新版本的Hugo在config.toml中加入theme=&amp;quot;THEME&amp;quot;即可，其他类型的配置文件同理。
-这个错误百度不出来，还是谷歌好用。
- Ref: https://github.com/gohugoio/hugo/issues/4851
-  hugo -t themename 部署网站时显示不出文章  hugo -t Beg --buildDrafts，加一个buildDrafts参数即可。</description>
     </item>
     
   </channel>
